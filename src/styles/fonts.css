@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Futura medium';
+    src: url('../public/fonts/Mukta-Regular.ttf')
+  }
+  @font-face {
+    font-family: 'Futura bold';
+    src: url('../public/fonts/Mukta-Bold.ttf')
+  }
+  @font-face {
+    font-family: 'Futura italic';
+    src: url('../public/fonts/Mukta-Light.ttf')
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/poppinsBlack.ttf')
+  }
+  
+  
+  @font-face {
+    font-family: 'Signature';
+    src: url('../public/fonts/NothingYouCouldDo-Regular.ttf')
+  }
+  
