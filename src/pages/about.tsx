@@ -110,12 +110,14 @@ export default function About() {
                       }`}
                     >
                       Az évek során fő irányvonalunk mellett számos
-                      tevékenyéggel bővítettük a szolgáltatásaink listáját: így
-                      alakult meg cégcsoportunk, melynek részeként jött létre a
-                      Homestar Properties. Így már kiadással kapcsolatos rövid
-                      és hosszú távú üzemeltetéssel, ingatlan közvetítéssel és
-                      tanácsadással, vagy akár karbantartással is tudjuk
-                      segíteni ügyfeleinket.
+                      tevékenyéggel bővítettük a szolgáltatásaink listáját:
+                      <strong className="font-futura-bold">
+                        így alakult meg cégcsoportunk, melynek részeként jött
+                        létre a Homestar Properties.
+                      </strong>
+                      Így már kiadással kapcsolatos rövid és hosszú távú
+                      üzemeltetéssel, ingatlan közvetítéssel és tanácsadással,
+                      vagy akár karbantartással is tudjuk segíteni ügyfeleinket.
                     </div>
                     <div
                       className={`transition-opacity duration-1000 ${
@@ -190,15 +192,13 @@ export default function About() {
                     name="Sóvári Gergely"
                     position="Ügyvezető"
                     email="gergely.sovari@home-star.hu"
-                    phoneNumbers={["+36 20 270 4086", "+36 20 387 8466"]}
+                    phoneNumbers={["+36 20 270 4086"]}
                     imageSrc={Employee1}
                     alt="Homestar ügyvezető"
                   />
                   <EmployeeCard
                     name="Katona Bence"
                     position="Lead Sales Representative"
-                    email="bence.katona@home-star.hu"
-                    phoneNumbers={["+36 30 843 0052"]}
                     imageSrc={Employee2}
                     alt="Homestar lead sales representative"
                   />
@@ -221,10 +221,9 @@ export default function About() {
                   Tedd fel kérdésed közvetlenül nekünk
                 </div>
                 <div className="text-xl text-center py-4  sm:w-1/3">
-                  Forradalmasítsd ingatlanod kezelését! Csatlakozz még ma a
-                  HomeStar-hoz, és használd kedvező szolgáltatásainkat. Vedd fel
-                  velünk a kapcsolatot és győződj meg az általunk nyújtott
-                  előnyökről.
+                  Maximalizáld ingatlanodból származó bevételt. Csatlakozz
+                  hozzánk még ma és használd ki szolgáltatásunk előnyeit. Vedd
+                  fel velünk a kapcsolatot és vágjunk bele még ma!
                 </div>
                 {pathname === PageUrl.About ? (
                   <NavLink to={`/#${ScrollToId.Contact}`}>

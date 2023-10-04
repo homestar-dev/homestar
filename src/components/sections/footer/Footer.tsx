@@ -15,7 +15,10 @@ export const Footer: React.FC<FooterProps> = () => {
             <div>info@home-star.hu</div>
           </a>
           <a href="tel:+36202704086">
-            <div>+36 20 27 04 086</div>
+            <div>+36 20 270 4086</div>
+          </a>
+          <a href="tel:+36203878466">
+            <div>+36 20 387 8466</div>
           </a>
         </div>
         <div className="flex flex-col gap-y-2">
