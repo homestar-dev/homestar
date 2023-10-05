@@ -33,3 +33,4 @@ export * from "./image-upload-input/ImageUploadInput";
 export * from "./loading-spinner/LoadingSpinner";
 export * from "./toast-message/ToastMessage";
 export * from "./google-maps/GoogleMaps";
+export * from "./google-analytics/GoogleAnalytics";

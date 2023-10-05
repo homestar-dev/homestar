@@ -47,11 +47,6 @@ body{
   z-index: -1000;
 }
 
-.about-bg {
-  background-image: url("../public/png/Group6.png");
-}
-
-
 input[type="file"] {
   display: none;
 }

@@ -55,10 +55,10 @@ export default function About() {
               <div className="bg-blue-900 py-12">
                 <div className="flex flex-wrap justify-between max-w-[1350px] mx-auto items-center">
                   <div className="sm:text-start text-center">
-                    <div className="text-blue-300 text-5xl uppercase pb-2">
-                      Homestar
+                    <div className="text-blue-300 text-5xl font-futura-bold font-bold tracking-widest  leading-relaxed pb-2">
+                      HomeStar
                     </div>
-                    <div className="text-white text-5xl">
+                    <div className="text-white text-4xl font-futura-bold font-bold tracking-widest">
                       Ingatlankezelés, mesterfokon.
                     </div>
                   </div>
@@ -66,12 +66,14 @@ export default function About() {
                     src={LogoWhite}
                     alt="homestar ingatlan kezelés"
                     className="sm:block hidden"
+                    priority={true}
                   />
                 </div>
               </div>
               <div className="mt-12 bg-grey-100 max-w-[1350px] mx-auto">
                 <div className="grid sm:justify-items-center sm:grid-cols-2">
                   <Image
+                    priority={true}
                     src={team}
                     alt="homestar ingatlankezelés csapat"
                     className="w-full object-cover h-[92%] sm:block hidden"
@@ -187,7 +189,7 @@ export default function About() {
                 <div className=" text-4xl  mt-8 mb-8 text-center">
                   Szakértő csapatunk
                 </div>
-                <div className=" flex xl:gap-4 gap-32 sm:justify-evenly  xl:flex-row flex-col items-center  mb-12">
+                <div className="flex xl:gap-4 gap-32 sm:justify-evenly xl:flex-nowrap flex-wrap justify-center  items-center  mb-12">
                   <EmployeeCard
                     name="Sóvári Gergely"
                     position="Ügyvezető"
@@ -210,7 +212,7 @@ export default function About() {
                   />
                   <EmployeeCard
                     name="Windisch Kristóf"
-                    position="Operations manager"
+                    position="Operations assistant"
                     imageSrc={Employee3}
                     alt="Homestar operations manager"
                   />
