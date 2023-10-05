@@ -10,10 +10,10 @@ import GoogleLogo from "@/public/svg/googleLogo.svg";
 
 export const LogoCarousel: React.FC = () => {
   const logos = [
-    { src: HomeAwayLogo, alt: "HomeAway" },
     { src: AirbnbLogo, alt: "airbnb" },
     { src: VrboLogo, alt: "vrbo" },
     { src: TripadvisorLogo, alt: "tripadvisor" },
+    { src: HomeAwayLogo, alt: "HomeAway" },
     { src: GoogleLogo, alt: "google" },
     { src: BookingLogo, alt: "Booking" },
     { src: Wimdu, alt: "wimdu" },

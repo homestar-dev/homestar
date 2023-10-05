@@ -20,7 +20,7 @@ export const Reviews: React.FC = () => {
           számodra.
         </div>
       </div>
-      <div className="col-span-2 mt-12 pb-12 mx-20">
+      <div className="col-span-2 mt-12 pb-12 mx-12">
         <LogoCarousel />
       </div>
     </div>
