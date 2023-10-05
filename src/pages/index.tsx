@@ -15,6 +15,7 @@ import { Features } from "@/components/sections/features/Features";
 export default function Home() {
   return (
     <div>
+      <Hero />
       <FadeInOnScroll threshold={0.3} children={<About />} />
       <FadeInOnScroll threshold={0.3} children={<Features />} />
       <FadeInOnScroll threshold={0.3} children={<Services />} />
