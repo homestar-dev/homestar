@@ -23,7 +23,7 @@ export const About: React.FC<AboutProps> = () => {
           <div className="md:text-[36px] text-2xl md:py-0 py-4 font-futura-bold font-bold tracking-widest text-grey-1000 leading-relaxed">
             Mi az a HomeStar?
           </div>
-          <div className="md:text-[30px] text-lg font-futura-medium leading-relaxed">
+          <div className="md:text-[30px] text-lg font-futura-medium leading-relaxed sm:ml-12">
             Egy holisztikus szolgáltatás azoknak, akik az ingatlankezelésre
             valódi befektetésként tekintenek. Szakértő csapatunk ahhoz járul
             hozzá, hogy professzionális vendéglátást nyújthass vendégeid

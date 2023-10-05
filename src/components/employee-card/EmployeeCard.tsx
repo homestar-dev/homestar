@@ -27,6 +27,7 @@ export const EmployeeCard: React.FC<EmployeeCardProps> = ({
               src={imageSrc}
               className="rounded-sm object-cover  w-full h-[450px]"
               alt={alt}
+              priority={true}
             />
           </div>
         </div>

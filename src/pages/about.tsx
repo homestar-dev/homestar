@@ -66,12 +66,14 @@ export default function About() {
                     src={LogoWhite}
                     alt="homestar ingatlan kezelés"
                     className="sm:block hidden"
+                    priority={true}
                   />
                 </div>
               </div>
               <div className="mt-12 bg-grey-100 max-w-[1350px] mx-auto">
                 <div className="grid sm:justify-items-center sm:grid-cols-2">
                   <Image
+                    priority={true}
                     src={team}
                     alt="homestar ingatlankezelés csapat"
                     className="w-full object-cover h-[92%] sm:block hidden"
@@ -185,7 +187,7 @@ export default function About() {
                 <div className=" text-4xl  mt-8 mb-8 text-center">
                   Szakértő csapatunk
                 </div>
-                <div className=" flex xl:gap-4 gap-32 sm:justify-evenly  xl:flex-row flex-col items-center  mb-12">
+                <div className="flex xl:gap-4 gap-32 sm:justify-evenly xl:flex-nowrap flex-wrap justify-center  items-center  mb-12">
                   <EmployeeCard
                     name="Sóvári Gergely"
                     position="Ügyvezető"
@@ -219,10 +221,9 @@ export default function About() {
                   Tedd fel kérdésed közvetlenül nekünk
                 </div>
                 <div className="text-xl text-center py-4  sm:w-1/3">
-                  Forradalmasítsd ingatlanod kezelését! Csatlakozz még ma a
-                  HomeStar-hoz, és használd kedvező szolgáltatásainkat. Vedd fel
-                  velünk a kapcsolatot és győződj meg az általunk nyújtott
-                  előnyökről.
+                  Maximalizáld ingatlanodból származó bevételt. Csatlakozz
+                  hozzánk még ma és használd ki szolgáltatásunk előnyeit. Vedd
+                  fel velünk a kapcsolatot és vágjunk bele még ma!
                 </div>
                 {pathname === PageUrl.About ? (
                   <NavLink to={`/#${ScrollToId.Contact}`}>
