@@ -112,12 +112,14 @@ export default function About() {
                       }`}
                     >
                       Az évek során fő irányvonalunk mellett számos
-                      tevékenyéggel bővítettük a szolgáltatásaink listáját: így
-                      alakult meg cégcsoportunk, melynek részeként jött létre a
-                      Homestar Properties. Így már kiadással kapcsolatos rövid
-                      és hosszú távú üzemeltetéssel, ingatlan közvetítéssel és
-                      tanácsadással, vagy akár karbantartással is tudjuk
-                      segíteni ügyfeleinket.
+                      tevékenyéggel bővítettük a szolgáltatásaink listáját:
+                      <strong className="font-futura-bold">
+                        így alakult meg cégcsoportunk, melynek részeként jött
+                        létre a Homestar Properties.
+                      </strong>
+                      Így már kiadással kapcsolatos rövid és hosszú távú
+                      üzemeltetéssel, ingatlan közvetítéssel és tanácsadással,
+                      vagy akár karbantartással is tudjuk segíteni ügyfeleinket.
                     </div>
                     <div
                       className={`transition-opacity duration-1000 ${

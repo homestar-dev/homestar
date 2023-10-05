@@ -21,7 +21,7 @@ export const Features: React.FC = () => {
     },
   ];
   return (
-    <div className="z-50 grid gap-y-8 bg-grey-100 xl:pb-12 md:px-32">
+    <div className="z-50 grid gap-y-8 bg-grey-100 xl:pb-12 md:px-12">
       <div className="sm:pb-12">
         <div className="md:text-[36px] text-2xl text-center leading-relaxed font-futura-bold tracking-widest text-grey-1000 sm:px-0 px-2">
           A vendéglátás a mi szakmánk, a haszon a tiéd.
