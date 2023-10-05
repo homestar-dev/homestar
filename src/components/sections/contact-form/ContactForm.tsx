@@ -64,6 +64,7 @@ export const ContactForm: React.FC<ContactFormProps> = () => {
       const result = await sendContactForm(formData);
       if (result.success) {
         setShowSuccessPage(true);
+        return;
       }
       setIsLoading(false);
       setResponseMessage(
