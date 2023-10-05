@@ -109,6 +109,8 @@ export const Hero: React.FC<HeroProps> = () => {
         autoPlay
         loop
         muted
+        playsInline
+        preload="auto"
         className={`absolute z-10 w-full h-full object-cover ${backgorundOpacity}`}
       >
         <source src={VideoBg} type="video/mp4" />
