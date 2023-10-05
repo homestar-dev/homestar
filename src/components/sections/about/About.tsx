@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Analytics from "@/public/svg/about/analytics.svg";
-import { AboutUsBox } from "@/components";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
 
 interface AboutProps {}
@@ -22,7 +21,7 @@ export const About: React.FC<AboutProps> = () => {
         />
         <div className="flex flex-col gap-y-4 xl:pt-12 pt-4 xl:text-right text-center md:px-0 px-4">
           <div className="md:text-[36px] text-2xl md:py-0 py-4 font-futura-bold font-bold tracking-widest text-grey-1000 leading-relaxed">
-            Mi a HomeStar?
+            Mi az a HomeStar?
           </div>
           <div className="md:text-[30px] text-lg font-futura-medium leading-relaxed">
             Egy holisztikus szolgáltatás azoknak, akik az ingatlankezelésre

@@ -55,10 +55,10 @@ export default function About() {
               <div className="bg-blue-900 py-12">
                 <div className="flex flex-wrap justify-between max-w-[1350px] mx-auto items-center">
                   <div className="sm:text-start text-center">
-                    <div className="text-blue-300 text-5xl uppercase pb-2">
-                      Homestar
+                    <div className="text-blue-300 text-5xl font-futura-bold font-bold tracking-widest  leading-relaxed pb-2">
+                      HomeStar
                     </div>
-                    <div className="text-white text-5xl">
+                    <div className="text-white text-4xl font-futura-bold font-bold tracking-widest">
                       Ingatlankezelés, mesterfokon.
                     </div>
                   </div>
@@ -190,15 +190,13 @@ export default function About() {
                     name="Sóvári Gergely"
                     position="Ügyvezető"
                     email="gergely.sovari@home-star.hu"
-                    phoneNumbers={["+36 20 270 4086", "+36 20 387 8466"]}
+                    phoneNumbers={["+36 20 270 4086"]}
                     imageSrc={Employee1}
                     alt="Homestar ügyvezető"
                   />
                   <EmployeeCard
                     name="Katona Bence"
                     position="Lead Sales Representative"
-                    email="bence.katona@home-star.hu"
-                    phoneNumbers={["+36 30 843 0052"]}
                     imageSrc={Employee2}
                     alt="Homestar lead sales representative"
                   />
@@ -210,7 +208,7 @@ export default function About() {
                   />
                   <EmployeeCard
                     name="Windisch Kristóf"
-                    position="Operations manager"
+                    position="Operations assistant"
                     imageSrc={Employee3}
                     alt="Homestar operations manager"
                   />
