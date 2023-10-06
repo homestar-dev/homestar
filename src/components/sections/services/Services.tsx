@@ -74,7 +74,7 @@ export const Services: FC = () => {
             <Image src={Service4} alt="airbnb booking" />
             <div className="absolute sm:top-20 top-10 flex flex-col">
               <div className="sm:text-3xl text-2xl sm:pl-32 pl-20 sm:mb-10 mb-6">
-                Maximalizáljuk a profitot
+                Maximalizáljuk a profitot
               </div>
               <div className="sm:text-xl text-sm sm:px-12 px-2">
                 Odafigyelés, monitorozás, optimalizálás - ezzel a hármassal
