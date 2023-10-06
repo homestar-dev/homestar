@@ -48,7 +48,7 @@ export const Activities: React.FC<ActivitiesProps> = () => {
           <ActivitiesCard
             color="medium"
             title="Home Staging"
-            text="Szeretnéd még hívogatóbbá tenni a lakásod, esetleg teljes berendezést keresel, de nem tudod, hogyan vágj bele? Ehhez is jó szemünk van! Intézzük a terveket és a tárgyak elrendezését is."
+            text="Szeretnéd még hívogatóbbá tenni a lakásod, esetleg teljes berendezést keresel, de nem tudod, hogyan vágj bele? Ehhez is jó szemünk van! Intézzük a terveket és a tárgyak elrendezését is."
           />
         </div>
       </div>
