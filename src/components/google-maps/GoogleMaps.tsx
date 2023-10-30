@@ -20,13 +20,7 @@ const GoogleMaps: React.FC<IGoogleMaps> = ({ location, address }) => {
     lat: 47.497913,
     lng: 19.040236,
   };
-
-  const [map, setMap] = React.useState(null)
-
-
-
-
-
+  
   return (
     <div>
       <div className="mb-2 text-lg font-semibold">{address}</div>
