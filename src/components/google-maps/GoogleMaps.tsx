@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: "100%",
@@ -12,33 +12,33 @@ interface IGoogleMaps {
 }
 
 const GoogleMaps: React.FC<IGoogleMaps> = ({ location, address }) => {
-  const [map, setMap] = React.useState(null);
-
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyBPgR5UfMvZOKRCpS6US6Hu0ZwCaAqHnx0"
+  })
   const centerOnBudapest = {
     lat: 47.497913,
     lng: 19.040236,
   };
 
-  const onLoad = React.useCallback(function callback(map: any) {
-    setMap(map);
-  }, []);
+  const [map, setMap] = React.useState(null)
 
-  const onUnmount = React.useCallback(function callback(map: any) {
-    setMap(null);
-  }, []);
+
+
+
 
   return (
     <div>
       <div className="mb-2 text-lg font-semibold">{address}</div>
+    {isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={location || centerOnBudapest}
-        zoom={18}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
+        zoom={17}
       >
         {location && <Marker position={location} />}
       </GoogleMap>
+  ) : <></>}
     </div>
   );
 };
