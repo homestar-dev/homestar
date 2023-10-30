@@ -14,7 +14,7 @@ interface IGoogleMaps {
 const GoogleMaps: React.FC<IGoogleMaps> = ({ location, address }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyBPgR5UfMvZOKRCpS6US6Hu0ZwCaAqHnx0"
+    googleMapsApiKey: process.env.NEXT_PUBLIC_PLACES_API_KEY || ""
   })
   const centerOnBudapest = {
     lat: 47.497913,
