@@ -55,7 +55,7 @@ export const AdressAutocomplete: FC<AdressAutocompleteProps> = ({
       {errorMessage && (
         <div
           aria-label="error"
-          className="absolute top-20 text-yellow-500 text-lg"
+          className="sm:absolute top-20 text-yellow-500 text-lg"
         >
           {errorMessage}
         </div>
