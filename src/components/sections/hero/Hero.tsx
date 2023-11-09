@@ -38,17 +38,25 @@ export const Hero: React.FC<HeroProps> = () => {
 
     setLocation(latLng);
 
-    setAddress(place.formatted_address);
-    if (address !== "") {
+    if (latLng !== null) {
       setAddressError(null);
     }
+    setAddress(place.formatted_address);
+  };
+
+  const onAddressInput = (e: any) => {
+    setAddressError(null);
+    e.preventDefault();
+    setAddress(e.target.value);
   };
 
   const onEvaluationOpen = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    if (address === "") {
-      setAddressError("Kérlek add meg az ingatlan elhelyezkedését");
+    if (!location) {
+      setAddressError(
+        "Kérlek válaszd ki az ingatlan elhelyezkedését a legördülő listából"
+      );
       return;
     }
     setBackgroundOpacity("opacity-60");
@@ -57,6 +65,8 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   const obEvaluationClose = (): void => {
+    setLocation(null);
+    setAddress("");
     setBackgroundOpacity(defaultBackgorundOpacity);
     setShowEvaluationPage(false);
   };
@@ -77,7 +87,7 @@ export const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="xl:text-[26px] mt-8 text-2xl font-futura-bold  tracking-widest pb-4 text-center mx-2 md:w-3/4 leading-normal">
               Kérj személyre szabott bevételbecslést - Vagy keress minket a
-              következő telefonszámon{" "}
+              következő telefonszámon
               <a
                 href="tel:+36202704086"
                 className="xl:text-[26px] mt-8 text-lg font-futura-bold text-yellow-500 tracking-widest text-center cursor-pointer"
@@ -86,14 +96,16 @@ export const Hero: React.FC<HeroProps> = () => {
               </a>
             </div>
 
-            <div className="flex md:w-1/2 sm:mx-0 mx-12 md:flex-nowrap flex-wrap gap-4 justify-around items-center pb-8">
+            <div className="flex md:w-1/2 sm:mx-0 mx-12 md:flex-nowrap flex-wrap gap-4 justify-around items-end pb-8">
               <AdressAutocomplete
                 onSelect={onAddressSelect}
-                placeholder="Az ingatlan elhelyezkedése"
+                onChange={onAddressInput}
+                placeholder="pl. 1110 Budapest, Petőfi utca 23."
                 errorMessage={addressError}
                 value={address}
+                label="Ingatlanod címe"
               />
-              <Button onClick={onEvaluationOpen}>Belevágok!</Button>
+              <Button onClick={onEvaluationOpen}>Becslést kérek!</Button>
             </div>
             <ScrollLink to={ScrollToId.About}>
               <Icon

@@ -10,6 +10,7 @@ interface AdressAutocompleteProps {
   id?: string;
   value: string;
   onChange?: (e: any) => void;
+  onBlur?: () => void;
   onSelect: (place: unknown | GooglePlacesResultType) => void; // Update the type of onSelect prop
 }
 
@@ -20,6 +21,7 @@ export const AdressAutocomplete: FC<AdressAutocompleteProps> = ({
   helpIcon,
   id,
   onChange,
+  onBlur,
   onSelect,
   value,
 }) => {
@@ -27,12 +29,18 @@ export const AdressAutocomplete: FC<AdressAutocompleteProps> = ({
 
   return (
     <div className="relative flex grow flex-col w-full text-black outline-none">
-      <label aria-label="label" htmlFor={id} className="text-white  text-xl">
+      <label
+        aria-label="label"
+        htmlFor={id}
+        className="text-white pb-1 font-futura-medium text-xl"
+      >
         {label}
       </label>
       <div className="flex grow justify-between bg-white py-3 px-4 rounded-sm">
         <PlacesAutocomplete
           apiKey={apiKey}
+          onChange={onChange}
+          onBlur={onBlur}
           onPlaceSelected={onSelect}
           options={{
             types: ["address"],
@@ -40,13 +48,14 @@ export const AdressAutocomplete: FC<AdressAutocompleteProps> = ({
           }}
           className="grow bg-transparent outline-none"
           placeholder={placeholder}
+          value={value}
         />
         {helpIcon && <Icon icon={IconEnum.Help} />}
       </div>
       {errorMessage && (
         <div
           aria-label="error"
-          className="absolute top-12 text-yellow-500 text-lg"
+          className="absolute top-20 text-yellow-500 text-lg"
         >
           {errorMessage}
         </div>

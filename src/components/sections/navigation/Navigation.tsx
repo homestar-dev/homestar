@@ -31,6 +31,7 @@ export const Navigation: FC<INavigationProps> = ({ children }) => {
                 src={Logo}
                 alt="homestar property management"
                 height={60}
+                priority
               />
             </NavLink>
           </div>
