@@ -9,7 +9,7 @@ import {
 } from "@/components";
 import VideoBg from "../../../public/videos/hero.mp4";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
-import { GooglePlacesResultType } from "@/utils";
+import { GooglePlacesResultType, logEvent } from "@/utils";
 
 interface HeroProps {}
 
@@ -51,6 +51,8 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   const onEvaluationOpen = (): void => {
+    logEvent("EvaluationButton", "Clicked");
+
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (!location) {
@@ -100,7 +102,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <AdressAutocomplete
                 onSelect={onAddressSelect}
                 onChange={onAddressInput}
-                placeholder="pl. 1110 Budapest, Petőfi utca 23."
+                placeholder="1110 Budapest, Petőfi utca 23."
                 errorMessage={addressError}
                 value={address}
                 label="Ingatlanod címe"
