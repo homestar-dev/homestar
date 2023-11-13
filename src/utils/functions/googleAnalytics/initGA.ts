@@ -1,5 +1,5 @@
 import ReactGA from "react-ga";
 
 export const initGA = () => {
-  ReactGA.initialize("UA-XXXXXXXXX-X"); // Replace with your tracking code
+  ReactGA.initialize("G-P8PT20C0G5");
 };
