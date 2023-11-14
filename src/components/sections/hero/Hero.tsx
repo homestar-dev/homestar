@@ -84,21 +84,20 @@ export const Hero: React.FC<HeroProps> = () => {
           />
         ) : (
           <div className="z-30 text-grey-100 flex flex-col items-center xl:gap-y-5 ">
-            <div className="xl:text-[50px] xl:w-2/3 xl:mt-2 xl:pt-0 pt-12 text-4xl text-center mt-24 mb-4  font-futura-bold tracking-widest xl:leading-relaxed">
+            <div className="xl:text-[50px] xl:w-2/3 xl:mt-2 xl:pt-0  text-4xl text-center mt-24 mb-4  font-futura-bold tracking-widest xl:leading-relaxed">
               Maximalizáld bevételeid: Ingatlankezelés új szintre emelve
             </div>
-            <div className="xl:text-[26px] mt-8 text-2xl font-futura-bold  tracking-widest pb-4 text-center mx-2 md:w-3/4 leading-normal">
+            <div className="xl:text-[26px] md:mt-8 text-xl font-futura-bold tracking-widest pb-4 text-center mx-2 md:w-3/4 leading-normal">
               Kérj személyre szabott bevételbecslést - Vagy keress minket a
               következő telefonszámon
               <a
                 href="tel:+36202704086"
-                className="xl:text-[26px] mt-8 text-lg font-futura-bold text-yellow-500 tracking-widest text-center cursor-pointer"
+                className="xl:text-[26px] ml-1 text-lg font-futura-bold text-yellow-500 tracking-widest text-center cursor-pointer"
               >
                 +36 20 2704086
               </a>
             </div>
-
-            <div className="flex md:w-1/2 sm:mx-0 mx-12 md:flex-nowrap flex-wrap gap-4 justify-around items-end pb-8">
+            <div className="flex md:w-1/2 sm:mx-0 mx-12 md:flex-nowrap flex-wrap gap-4 justify-around items-end pb-8 mt-2">
               <AdressAutocomplete
                 onSelect={onAddressSelect}
                 onChange={onAddressInput}
