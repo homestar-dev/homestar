@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = () => {
               következő telefonszámon
               <a
                 href="tel:+36202704086"
-                className="xl:text-[26px] ml-1 text-lg font-futura-bold text-yellow-500 tracking-widest text-center cursor-pointer"
+                className="xl:text-[26px] ml-1 text-xl font-futura-bold text-yellow-500 tracking-widest text-center cursor-pointer"
               >
                 +36 20 2704086
               </a>
