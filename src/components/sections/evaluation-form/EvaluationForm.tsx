@@ -50,6 +50,7 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [showMaps, setShowMaps] = useState<boolean>(false);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -160,10 +161,22 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
         {!showSuccessPage ? (
           <div className="grid mx-12 md:grid-cols-2 flex-row flex-wrap gap-x-12 items-center">
             <div className="grow grid gap-y-4">
-              <div className="xl:text-[40px] font-futura-bold text-left xl:mt-12 xl:pt-0 text-4xl mt-16 xl:leading-relaxed leading-normal">
+              <div className="xl:text-[40px] font-futura-bold text-left xl:mt-12 sm:mt-44 xl:pt-0 text-4xl mt-24 xl:leading-relaxed leading-normal">
                 Már csak egy apró lépésre vagy a bevételbecsléstől!
               </div>
-
+              <div className="flex flex-col justify-center gap-2 sm:hidden font-futura-medium text-lg ">
+                <div>{address}</div>
+                <div
+                  className="flex gap-1"
+                  onClick={() => setShowMaps(!showMaps)}
+                >
+                  <div className="cursor-pointer underline">
+                    {showMaps ? "Térkép elrejtése" : "Megnézem a Térképen"}
+                  </div>
+                  <Icon icon={IconEnum.Location} size={24} />
+                </div>
+                {showMaps && <GoogleMaps address={null} location={location} />}{" "}
+              </div>
               {currentStep === 0 && (
                 <>
                   <TextInput
@@ -241,8 +254,10 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                 <FormButtons />
               </div>
             </div>
-            <div className="mt-24 mb-12 sm:pt-0 pt-4">
-              <GoogleMaps address={address} location={location}></GoogleMaps>
+            <div className="sm:mt-24 mb-12 sm:pt-0 pt-4">
+              <div className="sm:block hidden">
+                <GoogleMaps address={address} location={location} />
+              </div>
             </div>
           </div>
         ) : (

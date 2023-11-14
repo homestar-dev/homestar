@@ -19,6 +19,7 @@ import { Menu } from "./icons/Menu";
 import { Checkmark } from "./icons/Checkmark";
 import { Upload } from "./icons/Upload";
 import { Close } from "./icons/Close";
+import { Location } from "./icons/Location";
 
 export enum IconEnum {
   Phone,
@@ -41,6 +42,7 @@ export enum IconEnum {
   Checkmark,
   Upload,
   Close,
+  Location,
 }
 
 export interface IconProps {
@@ -94,6 +96,8 @@ export const Icon: FC<IconProps> = ({ size, icon, className }) => {
         return <Upload size={size ? size : defaultIconSize} />;
       case IconEnum.Close:
         return <Close size={size ? size : defaultIconSize} />;
+      case IconEnum.Location:
+        return <Location size={size ? size : defaultIconSize} />;
       default:
         return null;
     }
