@@ -11,6 +11,7 @@ interface TextInputProps {
   id?: string;
   name?: string;
   onChange?: (e: any) => void;
+  onBlur?: () => void;
 }
 
 export const TextInput: FC<TextInputProps> = ({
@@ -23,6 +24,7 @@ export const TextInput: FC<TextInputProps> = ({
   id,
   name,
   onChange,
+  onBlur,
 }) => {
   return (
     <div className="flex flex-col w-full text-black outline-none font-futura-medium tracking-widest">
@@ -43,6 +45,7 @@ export const TextInput: FC<TextInputProps> = ({
           id={id}
           name={name}
           onChange={onChange}
+          onBlur={onBlur}
           autoComplete="on"
         />
         {helpIcon && <Icon icon={IconEnum.Help} />}

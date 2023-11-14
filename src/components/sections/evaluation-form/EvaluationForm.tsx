@@ -188,6 +188,9 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                     onChange={handleChange}
                     errorMessage={nameError}
                     value={formData.name}
+                    onBlur={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   />
                   <TextInput
                     type="email"
@@ -197,6 +200,9 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                     onChange={handleChange}
                     errorMessage={emailError}
                     value={formData.email}
+                    onBlur={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   />
                   <TextInput
                     type="tel"
@@ -206,6 +212,9 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                     onChange={handleChange}
                     errorMessage={phoneError}
                     value={formData.phone}
+                    onBlur={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   />
                 </>
               )}
@@ -219,6 +228,9 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                     onChange={handleChange}
                     errorMessage={sizeError}
                     value={formData.size}
+                    onBlur={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   />
                   <TextAreaInput
                     id="description"
@@ -226,6 +238,9 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
                     label="Ingatlan leírása"
                     onChange={handleChange}
                     value={formData.description}
+                    onBlur={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   />
                   <ImageUploadInput onImageUpload={handleImageUpload} />
                 </>
