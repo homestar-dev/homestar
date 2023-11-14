@@ -60,7 +60,7 @@ export const ImageUploadInput: React.FC<IImageUploadInputProps> = ({
       <div className="flex border border-dashed w-full flex-col">
         <label className="flex justify-center items-center flex-col px-8 py-4 cursor-pointer">
           <Icon icon={IconEnum.Upload} size={64} />
-          <div>Töltsön fel képeket az ingatlanról</div>
+          <div>Tölts fel képeket az ingatlanról</div>
           <input type="file" multiple onChange={handleImageChange} />
         </label>
         <div className="flex">
