@@ -160,11 +160,11 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       <div className="text-grey-100 ">
         {!showSuccessPage ? (
           <div className="grid mx-12 md:grid-cols-2 flex-row flex-wrap gap-x-12 items-center">
-            <div className="grow grid gap-y-4">
-              <div className="xl:text-[40px] font-futura-bold text-left xl:mt-12 sm:mt-44 xl:pt-0 text-4xl mt-24 xl:leading-relaxed leading-normal">
+            <div className="grow grid gap-y-3">
+              <div className="xl:text-[40px] text-3xl font-futura-bold text-left xl:mt-12 sm:mt-44 xl:pt-0 sm:pb-0 pb-2 mt-20 xl:leading-relaxed leading-none-">
                 Már csak egy apró lépésre vagy a bevételbecsléstől!
               </div>
-              <div className="flex flex-col justify-center gap-2 sm:hidden font-futura-medium text-lg ">
+              <div className="flex flex-col justify-center sm:hidden font-futura-medium text-lg ">
                 <div>{address}</div>
                 <div
                   className="flex gap-1"
