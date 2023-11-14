@@ -42,6 +42,7 @@ export const Hero: React.FC<HeroProps> = () => {
       setAddressError(null);
     }
     setAddress(place.formatted_address);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const onAddressInput = (e: any) => {
