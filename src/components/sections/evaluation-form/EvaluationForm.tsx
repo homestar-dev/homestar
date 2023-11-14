@@ -95,6 +95,7 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       setSizeError(undefined);
       return;
     }
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentStep(1);
   };
 
