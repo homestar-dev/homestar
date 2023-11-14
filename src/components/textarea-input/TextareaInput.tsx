@@ -21,7 +21,7 @@ export const TextAreaInput = forwardRef<
       <label
         aria-label="label"
         htmlFor={id}
-        className="text-white text-lg font-futura-medium"
+        className="text-white text-xl font-futura-medium"
       >
         {label}
       </label>

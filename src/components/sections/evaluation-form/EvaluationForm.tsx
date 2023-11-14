@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import {
   Button,
   EvalutaionFormSuccess,
+  Icon,
+  IconEnum,
   ImageUploadInput,
   LoadingSpinner,
   TextAreaInput,
@@ -27,7 +29,7 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
   address,
   location,
 }) => {
-  const [formData, setFormData] = useState<PropertyEvaluationFormDataType>({
+  const defaultFormState = {
     address: address,
     name: "",
     email: "",
@@ -35,7 +37,10 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
     size: "",
     description: "",
     images: [],
-  });
+  };
+
+  const [formData, setFormData] =
+    useState<PropertyEvaluationFormDataType>(defaultFormState);
 
   const [showSuccessPage, setShowSuccessPage] = useState<boolean>(false);
   const [emailError, setEmailErrors] = useState<string>();
@@ -44,6 +49,7 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
   const [sizeError, setSizeError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState<number>(0);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -56,9 +62,7 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
     });
   };
 
-  const onSubmit = async () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
+  const validateFirstFormPart = () => {
     if (!formData.name) {
       setNameError("Kérjük, adja meg teljes nevét");
       setEmailErrors(undefined);
@@ -90,7 +94,10 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       setSizeError(undefined);
       return;
     }
+    setCurrentStep(1);
+  };
 
+  const validateSecondFormPart = () => {
     if (!formData.size) {
       setSizeError("Kérjük, adja meg az ingatlan méretét");
       setNameError(undefined);
@@ -98,7 +105,11 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       setPhoneError(undefined);
       return;
     }
+  };
 
+  const onSubmit = async () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    validateSecondFormPart();
     setIsLoading(true);
     try {
       const result = await sendEvaluationForm(formData);
@@ -108,81 +119,134 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       }
       setIsLoading(false);
       setResponseMessage(result.message as string);
+      setCurrentStep(0);
     } catch (error) {
       console.error("An unexpected error occurred.", error);
       setShowSuccessPage(false);
       setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const FormButtons = () => {
+    if (currentStep === 0) {
+      return (
+        <>
+          <Button variant="secondary" onClick={closeForm}>
+            Vissza
+          </Button>
+          <Button variant="secondary" onClick={validateFirstFormPart}>
+            Következő
+          </Button>
+        </>
+      );
+    }
+    return (
+      <>
+        <Button variant="secondary" onClick={() => setCurrentStep(0)}>
+          Vissza
+        </Button>
+        <Button onClick={onSubmit}>
+          <LoadingSpinner isLoading={isLoading} children="Kérem a becslést" />
+        </Button>
+      </>
+    );
   };
 
   return (
     <>
-      <div className="text-grey-100 xl:ml-32 xl:mt-32 mx-4 sm:py-0 py-12 ">
+      <div className="text-grey-100 ">
         {!showSuccessPage ? (
-          <>
-            <div className="xl:text-[50px] font-bold  text-left xl:mt-2 xl:pt-0 text-4xl mt-16 mb-8 font-futura-bold tracking-widest xl:leading-relaxed">
-              Már csak egy apró lépésre vagy a bevételbecsléstől
-            </div>
-            <div className="grid md:grid-cols-2 flex-row flex-wrap gap-x-12 items-center">
-              <div className="grow grid xl:grid-cols-[90%] gap-y-4">
-                <TextInput
-                  type="text"
-                  id="name"
-                  name="name"
-                  label="Teljes név"
-                  onChange={handleChange}
-                  errorMessage={nameError}
-                />
-                <TextInput
-                  type="email"
-                  id="email"
-                  name="email"
-                  label="Email"
-                  onChange={handleChange}
-                  errorMessage={emailError}
-                />
-                <TextInput
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  label="Telefonszám"
-                  onChange={handleChange}
-                  errorMessage={phoneError}
-                />
-                <TextInput
-                  type="number"
-                  id="size"
-                  name="size"
-                  label="Ingatlan mérete (m2)"
-                  onChange={handleChange}
-                  errorMessage={sizeError}
-                />
-                <TextAreaInput
-                  id="description"
-                  name="description"
-                  label="Ingatlan leírása"
-                  onChange={handleChange}
-                />
-                <ImageUploadInput onImageUpload={handleImageUpload} />
+          <div className="grid mx-12 md:grid-cols-2 flex-row flex-wrap gap-x-12 items-center">
+            <div className="grow grid gap-y-4">
+              <div className="xl:text-[40px] font-futura-bold text-left xl:mt-12 xl:pt-0 text-4xl mt-16 xl:leading-relaxed leading-normal">
+                Már csak egy apró lépésre vagy a bevételbecsléstől!
               </div>
-              <div className="  sm:pt-0 pt-4">
-                <GoogleMaps address={address} location={location}></GoogleMaps>
+
+              {currentStep === 0 && (
+                <>
+                  <TextInput
+                    type="text"
+                    id="evaluation-name"
+                    name="name"
+                    label="Teljes név"
+                    onChange={handleChange}
+                    errorMessage={nameError}
+                    value={formData.name}
+                  />
+                  <TextInput
+                    type="email"
+                    id="evaluation-email"
+                    name="email"
+                    label="Email"
+                    onChange={handleChange}
+                    errorMessage={emailError}
+                    value={formData.email}
+                  />
+                  <TextInput
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    label="Telefonszám"
+                    onChange={handleChange}
+                    errorMessage={phoneError}
+                    value={formData.phone}
+                  />
+                </>
+              )}
+              {currentStep === 1 && (
+                <>
+                  <TextInput
+                    type="number"
+                    id="size"
+                    name="size"
+                    label="Ingatlan mérete (m2)"
+                    onChange={handleChange}
+                    errorMessage={sizeError}
+                    value={formData.size}
+                  />
+                  <TextAreaInput
+                    id="description"
+                    name="description"
+                    label="Ingatlan leírása"
+                    onChange={handleChange}
+                    value={formData.description}
+                  />
+                  <ImageUploadInput onImageUpload={handleImageUpload} />
+                </>
+              )}
+              <div className="flex w-full justify-center gap-4">
+                <Icon
+                  icon={
+                    currentStep === 0
+                      ? IconEnum.DotFilled
+                      : IconEnum.DotOutlined
+                  }
+                  size={10}
+                  className="text-white"
+                />
+                <Icon
+                  icon={
+                    currentStep === 1
+                      ? IconEnum.DotFilled
+                      : IconEnum.DotOutlined
+                  }
+                  size={10}
+                  className="text-white"
+                />
+              </div>
+
+              <div className="flex justify-center gap-4">
+                <FormButtons />
               </div>
             </div>
-            <div className="flex gap-4 pt-6">
-              <Button variant="secondary" onClick={closeForm}>
-                Vissza
-              </Button>
-              <Button onClick={onSubmit}>
-                <LoadingSpinner
-                  isLoading={isLoading}
-                  children="Kérem a becslést"
-                />
-              </Button>
+            <div className="mt-24 mb-12 sm:pt-0 pt-4">
+              <GoogleMaps address={address} location={location}></GoogleMaps>
             </div>
-          </>
+          </div>
         ) : (
-          <EvalutaionFormSuccess />
+          <EvalutaionFormSuccess closeForm={closeForm} />
         )}
       </div>
       <ToastMessage message={responseMessage} />

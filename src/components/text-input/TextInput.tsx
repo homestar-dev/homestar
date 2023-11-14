@@ -43,6 +43,7 @@ export const TextInput: FC<TextInputProps> = ({
           id={id}
           name={name}
           onChange={onChange}
+          autoComplete="on"
         />
         {helpIcon && <Icon icon={IconEnum.Help} />}
       </div>

@@ -13,7 +13,7 @@ export const DotFilled: FC<IconProps> = ({ size }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle opacity="0.7" cx="5.5" cy="5.5" r="5.5" fill="#051250" />
+      <circle opacity="0.7" cx="5.5" cy="5.5" r="5.5" fill="currentColor" />
     </svg>
   );
 };
