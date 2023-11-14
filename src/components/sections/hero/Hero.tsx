@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroProps> = () => {
           />
         ) : (
           <div className="z-30 text-grey-100 flex flex-col items-center xl:gap-y-5 ">
-            <div className="xl:text-[50px] xl:w-2/3 xl:mt-2 xl:pt-0  text-4xl text-center mt-24 mb-4  font-futura-bold tracking-widest xl:leading-relaxed">
+            <div className="xl:text-[50px] xl:w-2/3 xl:mt-2 xl:pt-0  text-4xl text-center mt-32 mb-4  font-futura-bold tracking-widest xl:leading-relaxed">
               Maximalizáld bevételeid: Ingatlankezelés új szintre emelve
             </div>
             <div className="xl:text-[26px] md:mt-8 text-xl font-futura-bold tracking-widest pb-4 text-center mx-2 md:w-3/4 leading-normal">
