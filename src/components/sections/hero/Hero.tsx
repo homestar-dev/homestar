@@ -9,7 +9,7 @@ import {
 } from "@/components";
 import VideoBg from "../../../public/videos/hero.mp4";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
-import { GooglePlacesResultType } from "@/utils";
+import { GooglePlacesResultType, logEvent } from "@/utils";
 
 interface HeroProps {}
 
@@ -49,6 +49,11 @@ export const Hero: React.FC<HeroProps> = () => {
     setAddressError(null);
     e.preventDefault();
     setAddress(e.target.value);
+
+    logEvent({
+      action: "address-input",
+      params: { input_event: "Address input used" },
+    });
   };
 
   const onEvaluationOpen = (): void => {
@@ -60,6 +65,12 @@ export const Hero: React.FC<HeroProps> = () => {
       );
       return;
     }
+
+    logEvent({
+      action: "evaluation-form-opened",
+      params: { click_event: "Evaluation button clicked" },
+    });
+
     setBackgroundOpacity("opacity-60");
     setAddressError(null);
     setShowEvaluationPage(true);
@@ -70,6 +81,13 @@ export const Hero: React.FC<HeroProps> = () => {
     setAddress("");
     setBackgroundOpacity(defaultBackgorundOpacity);
     setShowEvaluationPage(false);
+
+    logEvent({
+      action: "close-evaluation-form",
+      params: {
+        click_event: "Evaluation form closed",
+      },
+    });
   };
 
   return (

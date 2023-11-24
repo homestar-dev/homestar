@@ -1,8 +1,6 @@
-import ReactGA from "react-ga";
-
-export const pageview = (url: string) => {
+export const logPageView = (url: string) => {
   if (window !== undefined) {
-    window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+    window.gtag("config", "G-P8PT20C0G5", {
       page_path: url,
     });
   }

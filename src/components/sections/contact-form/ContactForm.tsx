@@ -6,7 +6,12 @@ import {
   LoadingSpinner,
   ToastMessage,
 } from "@/components";
-import { FormDataType, sendContactForm, validateEmail } from "@/utils";
+import {
+  FormDataType,
+  logEvent,
+  sendContactForm,
+  validateEmail,
+} from "@/utils";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
 import { useRouter } from "next/router";
 
@@ -58,12 +63,21 @@ export const ContactForm: React.FC<ContactFormProps> = () => {
       return;
     }
 
+    logEvent({
+      action: "contact-submit-button",
+      params: { click_event: "Contact submit button clicked" },
+    });
+
     setIsLoading(true);
 
     try {
       const result = await sendContactForm(formData);
       if (result.success) {
         router.push("/contact-success");
+        logEvent({
+          action: "contact-submit-success",
+          params: { success_event: "Contact form sumbmitted" },
+        });
         return;
       }
       setIsLoading(false);

@@ -2,9 +2,20 @@ import React from "react";
 import { Button, Icon, IconEnum } from "@/components";
 import VideoBg from "../../../public/videos/hero.mp4";
 import { useRouter } from "next/router";
+import { logEvent } from "@/utils";
 
 export const FormSuccess: React.FC = () => {
   const router = useRouter();
+
+  const onBack = (): void => {
+    logEvent({
+      action: "back-to-home",
+      params: {
+        click_event: "Navigate back home from contact or evaluation success",
+      },
+    });
+    router.push("/");
+  };
 
   return (
     <div className="bg-blue-900 relative flex items-center justify-center sm:h-screen overflow-hidden  text-white">
@@ -16,11 +27,7 @@ export const FormSuccess: React.FC = () => {
           Üzenetét sikeresen fogadtuk, 24 órán belül visszajelzünk!
         </div>
         <div>
-          <Button
-            className="mt-12"
-            variant="secondary"
-            onClick={() => router.push("/")}
-          >
+          <Button className="mt-12" variant="secondary" onClick={onBack}>
             <div className="flex items-center gap-2">
               <Icon icon={IconEnum.ArrowLeft} />
               <div>Vissza a főoldalra</div>

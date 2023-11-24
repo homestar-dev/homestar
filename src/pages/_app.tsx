@@ -4,11 +4,12 @@ import type { AppProps } from "next/app";
 import { ParallaxProvider } from "react-scroll-parallax";
 import useHotjar from "react-use-hotjar";
 import { useEffect } from "react";
-import { initGA } from "../utils";
+import { useRouter } from "next/router";
+import { logPageView } from "@/utils";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { initHotjar } = useHotjar();
-
+  const router = useRouter();
   const hotjarHJID = 3704257;
   const hotjarHJSV = 6;
 
@@ -17,11 +18,14 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [initHotjar]);
 
   useEffect(() => {
-    if (!window.GA_INITIALIZED) {
-      initGA();
-      window.GA_INITIALIZED = true;
-    }
-  }, []);
+    const handleRouteChange = (url: string) => {
+      logPageView(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>

@@ -12,6 +12,7 @@ import {
 import {
   ImageUploadType,
   PropertyEvaluationFormDataType,
+  logEvent,
   sendEvaluationForm,
   validateEmail,
 } from "@/utils";
@@ -94,6 +95,12 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
       setSizeError(undefined);
       return;
     }
+    logEvent({
+      action: "navigate-to-second-evalutaion-part-2",
+      params: {
+        click_event: "Navigate to evaluation form part 2",
+      },
+    });
     window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentStep(1);
   };
@@ -109,6 +116,12 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
   };
 
   const onSubmit = async () => {
+    logEvent({
+      action: "try-evaluation-form-submit",
+      params: {
+        click_event: "Evaluation form submit",
+      },
+    });
     window.scrollTo({ top: 0, behavior: "smooth" });
     validateSecondFormPart();
     setIsLoading(true);
@@ -118,6 +131,12 @@ export const EvalutationForm: React.FC<EvalutationFormProps> = ({
         router.push("/evaluation-success");
         return;
       }
+      logEvent({
+        action: "evaluation-success",
+        params: {
+          click_event: "Evaluation form submitted",
+        },
+      });
       setIsLoading(false);
       setResponseMessage(result.message as string);
       setCurrentStep(0);
