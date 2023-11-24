@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import { ParallaxProvider } from "react-scroll-parallax";
 import useHotjar from "react-use-hotjar";
 import { useEffect } from "react";
-import { initGA, logPageView } from "../utils";
+import { initGA } from "../utils";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { initHotjar } = useHotjar();
@@ -21,7 +21,6 @@ export default function App({ Component, pageProps }: AppProps) {
       initGA();
       window.GA_INITIALIZED = true;
     }
-    logPageView();
   }, []);
 
   return (

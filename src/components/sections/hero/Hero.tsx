@@ -9,7 +9,7 @@ import {
 } from "@/components";
 import VideoBg from "../../../public/videos/hero.mp4";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
-import { GooglePlacesResultType, logEvent } from "@/utils";
+import { GooglePlacesResultType } from "@/utils";
 
 interface HeroProps {}
 
@@ -52,8 +52,6 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   const onEvaluationOpen = (): void => {
-    logEvent("EvaluationButton", "Clicked");
-
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (!location) {
