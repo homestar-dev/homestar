@@ -1,3 +1,4 @@
+import { logEvent } from "@/utils";
 import Link from "next/link";
 import React from "react";
 
@@ -27,6 +28,12 @@ export const Footer: React.FC<FooterProps> = () => {
             href="https://www.facebook.com/profile.php?id=100093078103869"
             className="text-yellow-500 font-semibold"
             target="_blanc"
+            onClick={() =>
+              logEvent({
+                action: "facebook-link",
+                params: { click_event: "Redirect to facebook" },
+              })
+            }
           >
             Facebook
           </a>
@@ -39,6 +46,12 @@ export const Footer: React.FC<FooterProps> = () => {
             href="/dataUsage.pdf"
             target="_blanc"
             className="text-yellow-500 font-semibold cursor-pointer px-1"
+            onClick={() =>
+              logEvent({
+                action: "terms-of-service-button",
+                params: { click_event: "Terms of service button clicked" },
+              })
+            }
           >
             Adattájékoztató
           </Link>

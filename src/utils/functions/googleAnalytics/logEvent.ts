@@ -1,8 +1,5 @@
-import ReactGA from "react-ga";
-
-export const logEvent = (category = "", action = "") => {
-  if (category && action) {
-    ReactGA.event({ category, action });
-    console.log(category, action);
+export const logEvent = ({ action, params }: { action: any; params: any }) => {
+  if (window !== undefined) {
+    window.gtag("event", action, params);
   }
 };

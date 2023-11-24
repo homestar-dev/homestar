@@ -1,6 +1,7 @@
-import ReactGA from "react-ga";
-
-export const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
+export const logPageView = (url: string) => {
+  if (window !== undefined) {
+    window.gtag("config", "G-P8PT20C0G5", {
+      page_path: url,
+    });
+  }
 };

@@ -3,6 +3,7 @@ import Image from "next/image";
 import LogoWhite from "@/public/svg/logoWhite.svg";
 import { Button, QuestionContainer, ScrollLink } from "@/components";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
+import { logEvent } from "@/utils";
 
 interface FaQuProps {}
 
@@ -39,7 +40,16 @@ export const FaQu: React.FC<FaQuProps> = () => {
         />
         <div className="md:justify-self-end justify-self-center mt-4">
           <a href="mailto:info@home-star.hu">
-            <Button>Tedd fel kérdésed közvetlenül nekünk</Button>
+            <Button
+              onClick={() =>
+                logEvent({
+                  action: "ask-question-button",
+                  params: { click_event: "Ask question by mail" },
+                })
+              }
+            >
+              Tedd fel kérdésed közvetlenül nekünk
+            </Button>
           </a>
         </div>
       </div>

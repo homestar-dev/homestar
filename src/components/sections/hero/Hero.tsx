@@ -49,11 +49,14 @@ export const Hero: React.FC<HeroProps> = () => {
     setAddressError(null);
     e.preventDefault();
     setAddress(e.target.value);
+
+    logEvent({
+      action: "address-input",
+      params: { input_event: "Address input used" },
+    });
   };
 
   const onEvaluationOpen = (): void => {
-    logEvent("EvaluationButton", "Clicked");
-
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (!location) {
@@ -62,6 +65,12 @@ export const Hero: React.FC<HeroProps> = () => {
       );
       return;
     }
+
+    logEvent({
+      action: "evaluation-form-opened",
+      params: { click_event: "Evaluation button clicked" },
+    });
+
     setBackgroundOpacity("opacity-60");
     setAddressError(null);
     setShowEvaluationPage(true);
@@ -72,6 +81,13 @@ export const Hero: React.FC<HeroProps> = () => {
     setAddress("");
     setBackgroundOpacity(defaultBackgorundOpacity);
     setShowEvaluationPage(false);
+
+    logEvent({
+      action: "close-evaluation-form",
+      params: {
+        click_event: "Evaluation form closed",
+      },
+    });
   };
 
   return (
