@@ -21,6 +21,15 @@ export const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({
           gtag('config', "${googleAnalyticsId}");
 				`}
       </Script>
+      <Script id="google-conversion" strategy="afterInteractive">
+        {`
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11268532703',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        `}
+      </Script>
     </>
   );
 };
