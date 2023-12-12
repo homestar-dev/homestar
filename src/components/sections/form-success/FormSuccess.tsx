@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Icon, IconEnum } from "@/components";
-import VideoBg from "../../../public/videos/hero.mp4";
 import { useRouter } from "next/router";
 import { logEvent } from "@/utils";
+import HeroImage from "../../../public/heroImage.png";
+import Image from "next/image";
 
 export const FormSuccess: React.FC = () => {
   const router = useRouter();
@@ -35,16 +36,11 @@ export const FormSuccess: React.FC = () => {
           </Button>
         </div>
       </div>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
+      <Image
+        src={HeroImage}
+        alt="chain bridge"
         className={`absolute z-10 w-full h-full object-cover opacity-60`}
-      >
-        <source src={VideoBg} type="video/mp4" />
-      </video>
+      />
     </div>
   );
 };

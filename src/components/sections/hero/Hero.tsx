@@ -7,9 +7,10 @@ import {
   IconEnum,
   ScrollLink,
 } from "@/components";
-import VideoBg from "../../../public/videos/hero.mp4";
 import { ScrollToId } from "@/constants/enums/scroll-to-ids";
 import { GooglePlacesResultType, logEvent } from "@/utils";
+import Image from "next/image";
+import HeroImage from "../../../public/heroImage.png";
 
 interface HeroProps {}
 
@@ -135,16 +136,11 @@ export const Hero: React.FC<HeroProps> = () => {
           </div>
         )}
       </div>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
+      <Image
+        src={HeroImage}
+        alt="chain bridge"
         className={`absolute z-10 w-full h-full object-cover ${backgorundOpacity}`}
-      >
-        <source src={VideoBg} type="video/mp4" />
-      </video>
+      />
     </header>
   );
 };
